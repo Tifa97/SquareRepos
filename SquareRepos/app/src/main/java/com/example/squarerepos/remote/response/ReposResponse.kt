@@ -1,3 +1,5 @@
 package com.example.squarerepos.remote.response
 
-class ReposResponse : ArrayList<ReposResponseItem>()
+import kotlinx.serialization.Serializable
+
+typealias ReposResponse = List<ReposResponseItem>

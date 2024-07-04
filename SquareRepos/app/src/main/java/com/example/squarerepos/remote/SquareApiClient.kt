@@ -25,8 +25,8 @@ private val retrofit = Retrofit.Builder()
     .client(client)
     .build()
 
-//object RawgApiClient {
-//    val retrofitService: RawgApiInterface by lazy {
-//        retrofit.create(RawgApiInterface::class.java)
-//    }
-//}
+object SquareApiClient {
+    val retrofitService: SquareApiInterface by lazy {
+        retrofit.create(SquareApiInterface::class.java)
+    }
+}

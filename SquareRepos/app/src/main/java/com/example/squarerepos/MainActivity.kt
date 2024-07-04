@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.squarerepos.navigation.Screen
+import com.example.squarerepos.navigation.SquareAppNavGraph
 import com.example.squarerepos.ui.theme.SquareReposTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,29 +21,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             SquareReposTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                val navController = rememberNavController()
+                SquareAppNavGraph(navController = navController, startDestination = Screen.ReposOverview.route)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SquareReposTheme {
-        Greeting("Android")
     }
 }

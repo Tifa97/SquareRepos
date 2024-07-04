@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SquareRepos</string>
+    <string name="error_while_fetching_repos">Error while fetching repos</string>
 </resources>
