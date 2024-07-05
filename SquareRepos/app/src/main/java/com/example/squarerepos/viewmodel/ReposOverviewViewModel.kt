@@ -39,17 +39,14 @@ class ReposOverviewViewModel(
                 is Resource.Success -> {
                     result.data?.let {
                         _repos.value = it
-                        _repos.value!!.forEach {
-                            Log.d(TAG, "Repo: ${it.name}")
-                        }
                     }
-                    _isLoading.value = true
+                    _isLoading.value = false
                 }
                 is Resource.Error -> {
                     result.message?.let {
                         _loadingError.value = it
                     }
-                    _isLoading.value = true
+                    _isLoading.value = false
                 }
                 else -> {}
             }

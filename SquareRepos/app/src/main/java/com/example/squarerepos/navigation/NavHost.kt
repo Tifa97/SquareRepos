@@ -9,6 +9,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.squarerepos.ui.composable.RepoDetailsScreen
 import com.example.squarerepos.ui.composable.ReposOverviewScreen
 
 @Composable
@@ -19,6 +20,9 @@ fun SquareAppNavGraph(
     NavHost(navController = navController, startDestination = startDestination) {
         composable(route = Screen.ReposOverview.route) {
             ReposOverviewScreen(navController = navController)
+        }
+        composable(route = Screen.RepoDetails.route) {
+            RepoDetailsScreen(navController = navController)
         }
     }
 }
