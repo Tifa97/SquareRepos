@@ -72,7 +72,7 @@ fun RepoListItem(repo: ReposResponseItem, navController: NavController, modifier
             .background(Color.White)
             .clickable {
                 navController.navigate(
-                    "${Screen.RepoDetails.route}"
+                    "${Screen.RepoDetails.route}/${repo.name}"
                 )
             }
     ) {

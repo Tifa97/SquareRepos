@@ -21,8 +21,18 @@ fun SquareAppNavGraph(
         composable(route = Screen.ReposOverview.route) {
             ReposOverviewScreen(navController = navController)
         }
-        composable(route = Screen.RepoDetails.route) {
-            RepoDetailsScreen(navController = navController)
+        composable(
+            route = "${Screen.RepoDetails.route}/{${Screen.REPO_NAME_ARG}}",
+            arguments = listOf(
+                navArgument(Screen.REPO_NAME_ARG) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
+            val repoName = remember {
+                it.arguments?.getString(Screen.REPO_NAME_ARG)
+            }
+            RepoDetailsScreen(repoName = repoName, navController = navController)
         }
     }
 }
