@@ -5,164 +5,40 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ReposResponseItem(
-    @SerialName(value = "allow_forking")
-    val allow_forking: Boolean?,
-    @SerialName(value = "archive_url")
-    val archive_url: String?,
-    @SerialName(value = "archived")
-    val archived: Boolean?,
-    @SerialName(value = "assignees_url")
-    val assignees_url: String?,
-    @SerialName(value = "blobs_url")
-    val blobs_url: String?,
-    @SerialName(value = "branches_url")
-    val branches_url: String?,
     @SerialName(value = "clone_url")
     val clone_url: String?,
-    @SerialName(value = "collaborators_url")
-    val collaborators_url: String?,
-    @SerialName(value = "comments_url")
-    val comments_url: String?,
-    @SerialName(value = "commits_url")
-    val commits_url: String?,
-    @SerialName(value = "compare_url")
-    val compare_url: String?,
-    @SerialName(value = "contents_url")
-    val contents_url: String?,
-    @SerialName(value = "contributors_url")
-    val contributors_url: String?,
     @SerialName(value = "created_at")
     val created_at: String?,
     @SerialName(value = "default_branch")
     val default_branch: String?,
-    @SerialName(value = "deployments_url")
-    val deployments_url: String?,
     @SerialName(value = "description")
     val description: String?,
-    @SerialName(value = "disabled")
-    val disabled: Boolean?,
-    @SerialName(value = "downloads_url")
-    val downloads_url: String?,
-    @SerialName(value = "events_url")
-    val events_url: String?,
-    @SerialName(value = "fork")
-    val fork: Boolean?,
-    @SerialName(value = "forks")
-    val forks: Int?,
-    @SerialName(value = "forks_count")
-    val forks_count: Int?,
-    @SerialName(value = "forks_url")
-    val forks_url: String?,
     @SerialName(value = "full_name")
     val full_name: String?,
-    @SerialName(value = "git_commits_url")
-    val git_commits_url: String?,
-    @SerialName(value = "git_refs_url")
-    val git_refs_url: String?,
-    @SerialName(value = "git_tags_url")
-    val git_tags_url: String?,
-    @SerialName(value = "git_url")
-    val git_url: String?,
-    @SerialName(value = "has_discussions")
-    val has_discussions: Boolean?,
-    @SerialName(value = "has_downloads")
-    val has_downloads: Boolean?,
-    @SerialName(value = "has_issues")
-    val has_issues: Boolean?,
-    @SerialName(value = "has_pages")
-    val has_pages: Boolean?,
-    @SerialName(value = "has_projects")
-    val has_projects: Boolean?,
-    @SerialName(value = "has_wiki")
-    val has_wiki: Boolean?,
-    @SerialName(value = "homepage")
-    val homepage: String?,
-    @SerialName(value = "hooks_url")
-    val hooks_url: String?,
     @SerialName(value = "html_url")
     val html_url: String?,
     @SerialName(value = "id")
     val id: Int?,
-    @SerialName(value = "is_template")
-    val is_template: Boolean?,
-    @SerialName(value = "issue_comment_url")
-    val issue_comment_url: String?,
-    @SerialName(value = "issue_events_url")
-    val issue_events_url: String?,
-    @SerialName(value = "issues_url")
-    val issues_url: String?,
-    @SerialName(value = "keys_url")
-    val keys_url: String?,
-    @SerialName(value = "labels_url")
-    val labels_url: String?,
     @SerialName(value = "language")
     val language: String?,
-    @SerialName(value = "languages_url")
-    val languages_url: String?,
     @SerialName(value = "license")
     val license: License?,
-    @SerialName(value = "merges_url")
-    val merges_url: String?,
-    @SerialName(value = "milestones_url")
-    val milestones_url: String?,
-    @SerialName(value = "mirror_url")
-    val mirror_url: String?,
     @SerialName(value = "name")
     val name: String?,
-    @SerialName(value = "node_id")
-    val node_id: String?,
-    @SerialName(value = "notifications_url")
-    val notifications_url: String?,
     @SerialName(value = "open_issues")
     val open_issues: Int?,
-    @SerialName(value = "open_issues_count")
-    val open_issues_count: Int?,
     @SerialName(value = "owner")
     val owner: Owner?,
-    @SerialName(value = "permissions")
-    val permissions: Permissions?,
     @SerialName(value = "private")
     val `private`: Boolean?,
-    @SerialName(value = "pulls_url")
-    val pulls_url: String?,
-    @SerialName(value = "pushed_at")
-    val pushed_at: String?,
-    @SerialName(value = "releases_url")
-    val releases_url: String?,
     @SerialName(value = "size")
     val size: Int?,
     @SerialName(value = "ssh_url")
     val ssh_url: String?,
-    @SerialName(value = "stargazers_count")
-    val stargazers_count: Int?,
-    @SerialName(value = "stargazers_url")
-    val stargazers_url: String?,
-    @SerialName(value = "statuses_url")
-    val statuses_url: String?,
-    @SerialName(value = "subscribers_url")
-    val subscribers_url: String?,
-    @SerialName(value = "subscription_url")
-    val subscription_url: String?,
-    @SerialName(value = "svn_url")
-    val svn_url: String?,
-    @SerialName(value = "tags_url")
-    val tags_url: String?,
-    @SerialName(value = "teams_url")
-    val teams_url: String?,
     @SerialName(value = "topics")
     val topics: List<String>?,
-    @SerialName(value = "trees_url")
-    val trees_url: String?,
     @SerialName(value = "updated_at")
     val updated_at: String?,
-    @SerialName(value = "url")
-    val url: String?,
     @SerialName(value = "visibility")
     val visibility: String?,
-    @SerialName(value = "watchers")
-    val watchers: Int?,
-    @SerialName(value = "watchers_count")
-    val watchers_count: Int?,
-    @SerialName(value = "web_commit_signoff_required")
-    val web_commit_signoff_required: Boolean?
 )

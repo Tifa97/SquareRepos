@@ -47,13 +47,16 @@ fun ReposOverviewScreen(navController: NavController, modifier: Modifier = Modif
                 .fillMaxHeight(0.2f)
         )
     } else {
-        LazyColumn(
-            modifier = modifier.fillMaxSize()
-        ) {
-            repos?.let { repoList ->
-                items(repoList.size, itemContent = {
-                    RepoListItem(repo = repoList[it], navController)
-                })
+        Column {
+            TopBar()
+            LazyColumn(
+                modifier = modifier.fillMaxSize()
+            ) {
+                repos?.let { repoList ->
+                    items(repoList.size, itemContent = {
+                        RepoListItem(repo = repoList[it], navController)
+                    })
+                }
             }
         }
     }
