@@ -1,4 +1,4 @@
-package com.example.squarerepos.ui.composable
+package com.example.squarerepos.ui.composable.util
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.CircularProgressIndicator

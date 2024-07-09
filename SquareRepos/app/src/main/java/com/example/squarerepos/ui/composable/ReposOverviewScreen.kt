@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,8 +29,10 @@ import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import com.example.squarerepos.navigation.Screen
 import com.example.squarerepos.remote.response.ReposResponseItem
+import com.example.squarerepos.ui.composable.util.LoadError
+import com.example.squarerepos.ui.composable.util.LoadingIndicator
+import com.example.squarerepos.ui.composable.util.TopBar
 import com.example.squarerepos.viewmodel.ReposOverviewViewModel
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -39,23 +40,24 @@ fun ReposOverviewScreen(navController: NavController, modifier: Modifier = Modif
     val viewModel = koinViewModel<ReposOverviewViewModel>()
     val repos by remember { viewModel.repos }
     val isLoading by remember { viewModel.isLoading }
+    val loadingError by remember { viewModel.loadingError }
+    
+    LoadError(error = loadingError)
 
-    if (isLoading) {
-        LoadingIndicator(
-            modifier = modifier
-                .fillMaxWidth()
-                .fillMaxHeight(0.2f)
-        )
-    } else {
-        Column {
-            TopBar()
-            LazyColumn(
-                modifier = modifier.fillMaxSize()
-            ) {
-                repos?.let { repoList ->
-                    items(repoList.size, itemContent = {
-                        RepoListItem(repo = repoList[it], navController)
-                    })
+    when {
+        isLoading -> LoadingIndicator(modifier = modifier.fillMaxWidth().fillMaxHeight(0.2f))
+        !loadingError.isNullOrEmpty() -> LoadError(error = loadingError)
+        else -> {
+            Column {
+                TopBar()
+                LazyColumn(
+                    modifier = modifier.fillMaxSize()
+                ) {
+                    repos?.let { repoList ->
+                        items(repoList.size, itemContent = {
+                            RepoListItem(repo = repoList[it], navController)
+                        })
+                    }
                 }
             }
         }

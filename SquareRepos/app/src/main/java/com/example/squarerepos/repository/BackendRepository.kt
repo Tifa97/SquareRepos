@@ -13,6 +13,9 @@ class BackendRepository(
     private val squareApi: SquareApiClient,
     private val context: Context
 ) {
+    // Seems like there is no pagination on the API side
+    // (no indication of pagination in headers or body of the response) so it is not used here
+    // Also probably no need since there is only 60 items in the response
     suspend fun getRepos(): Resource<ReposResponse> {
         val result = try {
             squareApi.retrofitService.getRepos()

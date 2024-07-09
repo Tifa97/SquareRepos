@@ -38,8 +38,8 @@ class RepoDetailsViewModel(
                 is Resource.Error -> {
                     result.message?.let {
                         _loadError.value = it
-                        _isLoading.value = false
                     }
+                    _isLoading.value = false
                 }
                 else -> {}
             }
