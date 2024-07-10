@@ -48,7 +48,6 @@ class ReposOverviewViewModel(
                     }
                     _isLoading.value = false
                 }
-                else -> {}
             }
         }
     }

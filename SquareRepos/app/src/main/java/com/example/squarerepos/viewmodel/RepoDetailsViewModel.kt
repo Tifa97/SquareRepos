@@ -24,7 +24,6 @@ class RepoDetailsViewModel(
     val loadError: State<String> = _loadError
 
     fun getRepoByName(repoName: String) {
-        Log.i(TAG, "Called getRepoByName()")
         viewModelScope.launch {
             _isLoading.value = true
             val result = backendRepository.getRepoByName(repoName)
@@ -41,7 +40,6 @@ class RepoDetailsViewModel(
                     }
                     _isLoading.value = false
                 }
-                else -> {}
             }
         }
     }
