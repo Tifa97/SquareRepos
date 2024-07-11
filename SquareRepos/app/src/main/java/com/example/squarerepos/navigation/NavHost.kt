@@ -12,6 +12,7 @@ import androidx.navigation.navArgument
 import com.example.squarerepos.ui.composable.RepoDetailsScreen
 import com.example.squarerepos.ui.composable.ReposOverviewScreen
 
+// Composable that takes care of navigation.
 @Composable
 fun SquareAppNavGraph(
     navController: NavHostController,

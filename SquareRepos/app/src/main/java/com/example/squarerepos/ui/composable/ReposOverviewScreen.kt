@@ -35,21 +35,24 @@ import com.example.squarerepos.ui.composable.util.TopBar
 import com.example.squarerepos.viewmodel.ReposOverviewViewModel
 import org.koin.androidx.compose.koinViewModel
 
+// Screen that contains list of all repositories fetched from the API
 @Composable
 fun ReposOverviewScreen(navController: NavController, modifier: Modifier = Modifier) {
     val viewModel = koinViewModel<ReposOverviewViewModel>()
     val repos by remember { viewModel.repos }
     val isLoading by remember { viewModel.isLoading }
     val loadingError by remember { viewModel.loadingError }
-    
-    LoadError(error = loadingError)
 
+    // Handling of different states
     when {
         isLoading -> LoadingIndicator(modifier = modifier.fillMaxWidth().fillMaxHeight(0.2f))
         !loadingError.isNullOrEmpty() -> LoadError(error = loadingError)
         else -> {
             Column {
                 TopBar()
+                // This small piece of code would be done with a RecyclerView if I wasn't using Jetpack Compose
+                // Instead of this, there would be a RecyclerView in xml layout file, another layout file with
+                // list item, adapter class and instantiation inside the Activity.
                 LazyColumn(
                     modifier = modifier.fillMaxSize()
                 ) {
@@ -64,6 +67,7 @@ fun ReposOverviewScreen(navController: NavController, modifier: Modifier = Modif
     }
 }
 
+// List item for LazyColumn. Without Jetpack Compose, this would have an xml layout file for itself
 @Composable
 fun RepoListItem(repo: ReposResponseItem, navController: NavController, modifier: Modifier = Modifier) {
     Box(

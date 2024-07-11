@@ -36,6 +36,7 @@ import com.example.squarerepos.ui.composable.util.TopBar
 import com.example.squarerepos.viewmodel.RepoDetailsViewModel
 import org.koin.androidx.compose.koinViewModel
 
+// Screen that displays details about a chosen repository
 @Composable
 fun RepoDetailsScreen(repoName: String?, navController: NavController, modifier: Modifier = Modifier) {
     val viewModel = koinViewModel<RepoDetailsViewModel>()
@@ -45,12 +46,14 @@ fun RepoDetailsScreen(repoName: String?, navController: NavController, modifier:
 
     val uriHandler = LocalUriHandler.current
 
+    // Making sure that getRepoByName() is called only once and is not affected by recomposition.
     LaunchedEffect(repoName) {
         repoName?.let {
             viewModel.getRepoByName(repoName)
         }
     }
 
+    // Handling of different screen states
     when {
         isLoading -> LoadingIndicator(modifier = Modifier.fillMaxSize())
         !loadingError.isNullOrEmpty() -> LoadError(error = loadingError)

@@ -3,6 +3,7 @@ package com.example.squarerepos.remote.response
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+//Kept only necessary data to keep the code clean
 @Serializable
 data class ReposResponseItem(
     @SerialName(value = "description")

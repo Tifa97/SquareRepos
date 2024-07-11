@@ -20,7 +20,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SquareReposTheme {
-                // A surface container using the 'background' color from the theme
                 val navController = rememberNavController()
                 SquareAppNavGraph(navController = navController, startDestination = Screen.ReposOverview.route)
             }
